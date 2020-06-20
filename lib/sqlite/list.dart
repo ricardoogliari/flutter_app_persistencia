@@ -43,16 +43,29 @@ class _ListPersonsState extends State<ListPersons> {
       ),
       body: ListView.separated(
         itemCount: personsList.length,
-        itemBuilder: (context, index) => ListTile(
+        itemBuilder: (context, index) => buildListItem(index),
+        separatorBuilder: (context, index) => Divider(
+          height: 1,
+        ),
+      ),
+    );
+  }
+
+  Widget buildListItem(int index){
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+        child: ListTile(
           leading: Text("${personsList[index].id}"),
           title: Text(personsList[index].firstName),
           subtitle: Text(personsList[index].lastName),
           onLongPress: (){
-            deleteDog(index);
+            deletePerson(index);
           },
-        ),
-        separatorBuilder: (context, index) => Divider(
-          height: 1,
         ),
       ),
     );
@@ -104,7 +117,7 @@ class _ListPersonsState extends State<ListPersons> {
     });
   }
 
-  deleteDog(int index) async {
+  deletePerson(int index) async {
     await _database.delete(
       'person',
       // Use a `where` clause to delete a specific dog.

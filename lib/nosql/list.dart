@@ -61,16 +61,29 @@ class _ListBooksState extends State<ListBooks> {
       ),
       body: ListView.separated(
         itemCount: listBooks.length,
-        itemBuilder: (context, index) => ListTile(
-          leading: Text("${listBooks[index].id}"),
-          title: Text(listBooks[index].name),
-          subtitle: Text(listBooks[index].author),
-          onLongPress: (){
-            deleteBook(listBooks[index]);
-          },
-        ),
+        itemBuilder: (context, index) => buildListItem(listBooks[index]),
         separatorBuilder: (context, index) => Divider(
           height: 1,
+        ),
+      ),
+    );
+  }
+
+  Widget buildListItem(Book book){
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+        child: ListTile(
+          leading: Text("${book.id}"),
+          title: Text(book.name),
+          subtitle: Text(book.author),
+          onLongPress: (){
+            deleteBook(book);
+          },
         ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutterapppersistencia/firebase/list.dart';
 import 'package:flutterapppersistencia/nosql/list.dart';
 import 'package:flutterapppersistencia/sqlite/list.dart';
 
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/sqlite': (context) => ListPersons(),
         '/nosql': (context) => ListBooks(),
+        '/firebase': (context) => ListCars(),
       },
     );
   }
@@ -65,6 +67,23 @@ class Home extends StatelessWidget {
           trailing: Icon(Icons.navigate_next),
           onTap: (){
             Navigator.pushNamed(context, "/nosql");
+          },
+        ),
+        Divider(
+          height: 1,
+          color: Colors.black54,
+        ),
+        ListTile(
+          title: Text("Firebase"),
+          subtitle: Text("Lista de Carros"),
+          leading: SvgPicture.asset(
+            "images/firebase-icon.svg",
+            width: 48,
+            height: 48,
+          ),
+          trailing: Icon(Icons.navigate_next),
+          onTap: (){
+            Navigator.pushNamed(context, "/firebase");
           },
         ),
       ],

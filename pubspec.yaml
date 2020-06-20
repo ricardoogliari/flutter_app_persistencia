@@ -31,6 +31,7 @@ dependencies:
   flutter_svg: ^0.17.1
   path:
   floor: ^0.13.0
+  cloud_firestore: ^0.13.6
 
 dev_dependencies:
   flutter_test:
@@ -53,6 +54,8 @@ flutter:
   assets:
     - images/sqlite-icon.svg
     - images/db.svg
+    - images/firebase.svg
+    - images/firebase-icon.svg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
