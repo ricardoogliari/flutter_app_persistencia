@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^0.1.3
   flutter_svg: ^0.17.1
   path:
+  sqflite:
   floor: ^0.13.0
   cloud_firestore: ^0.13.6
 
