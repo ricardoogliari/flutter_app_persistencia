@@ -1,6 +1,8 @@
 # flutterapppersistencia
 
-A new Flutter application.
+A study case to show database options in Flutter DEvelopment.
+
+OBS: you need to create your project in firebase console and download and configure google services file.
 
 ## Getting Started
 
